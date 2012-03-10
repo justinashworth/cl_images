@@ -1,0 +1,17 @@
+To run as local webserver:
+1. install apache2, set up localhost site
+	e.g.: http://www.ubuntugeek.com/how-to-install-apache2-webserver-with-phpcgi-and-perl-support-in-ubuntu-server.html
+
+2. enable cgi:
+
+  DocumentRoot /home/[user]/[webdir]
+  <Directory /home/[user]/[webdir]/>
+    Options Indexes ExecCGI FollowSymLinks MultiViews
+    AddHandler cgi-script cgi
+    AllowOverride None
+    Order allow,deny
+    allow from all
+  </Directory>
+
+3. open url in browser:
+  http://localhost/
