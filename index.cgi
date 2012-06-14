@@ -119,7 +119,9 @@ elif category == 'ccc':
 
 else:
 	# groups: ( date, url, title, price, location )
-	re_listing = re.compile('<p>([^<]+)<a href="([^"]+)">([^\$<]+)\$([^ <-]+)[^<]+</a><font size="-1">([^<]+)</font>')
+	#re_listing = re.compile('<p>([^<]+)<a href="([^"]+)">([^\$<]+)\$([^ <-]+)[^<]+</a><font size="-1">([^<]+)</font>')
+	# groups: date, url, title, price, location
+	re_listing = re.compile('<span class="itemdate">([^<]+)<.+?<a href="(http://[^"]+)">([^<]+)<.+?<span class="itempp">([^>]+)<.+?(\([^\)]+\))',re.DOTALL)
 
 for listing in re_listing.finditer(results):
 	price = None
